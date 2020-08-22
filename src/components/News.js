@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
+import Spinner from "./Spinner";
 import axios from "axios";
 
 const News = () => {
@@ -22,9 +23,10 @@ const News = () => {
 
   if (loading) {
     return (
-      <center>
-        <h1>Loading...</h1>
-      </center>
+      // <center>
+      //   <h1>Loading...</h1>
+      // </center>
+      <Spinner />
     );
   }
 

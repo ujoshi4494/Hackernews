@@ -17,7 +17,6 @@ function App() {
             <Route exact path='/contact' component={Contact} />
             <Route exact path='/' component={News} />
           </Switch>
-          <News />
         </div>
       </Fragment>
     </Router>
