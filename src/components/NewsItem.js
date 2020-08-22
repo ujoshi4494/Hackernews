@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 const NewsItem = ({ news }) => {
+  const [newsItem, setNewsItem] = useState(news);
+  const { points } = newsItem;
   const source = news.url
     ? news.url.replace("http://", "").replace("https://", "").split(/[/?#]/)[0]
     : "hackernews.com";
-  console.log(source);
   return (
     <div
       style={{
@@ -25,13 +26,18 @@ const NewsItem = ({ news }) => {
           paddingBottom: "5px",
         }}>
         <small>
-          <span style={{ margin: "2px" }}>{news.points}</span>
+          <span style={{ margin: "2px" }}>{points}</span>
         </small>
         <small>
-          <a>upvote</a>
+          <a
+            onClick={() => {
+              setNewsItem({ ...newsItem, points: points + 1 });
+            }}>
+            upvote
+          </a>
         </small>
         <small>
-          <span style={{ margin: "2px" }}>{news.num_comments}</span>
+          <span style={{ margin: "2px" }}>{newsItem.num_comments}</span>
         </small>
         <small>
           <a>comments</a>

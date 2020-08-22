@@ -11,7 +11,6 @@ const News = () => {
     const res = await axios.get(
       "https://hn.algolia.com/api/v1/search?tags=front_page"
     );
-    console.log(res.data.hits);
     setNews(res.data.hits);
     setLoading(false);
   };
@@ -22,7 +21,11 @@ const News = () => {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <center>
+        <h1>Loading...</h1>
+      </center>
+    );
   }
 
   return (
