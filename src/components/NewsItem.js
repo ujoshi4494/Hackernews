@@ -1,0 +1,47 @@
+import React, { useState } from "react";
+
+const NewsItem = ({ news }) => {
+  const source = news.url
+    ? news.url.replace("http://", "").replace("https://", "").split(/[/?#]/)[0]
+    : "hackernews.com";
+  console.log(source);
+  return (
+    <div
+      style={{
+        padding: "8px",
+        marginLeft: "20px",
+      }}>
+      <div style={{ backgroundColor: "#ece2db", padding: "10px" }}>
+        <a href={news.url} className='news-design'>
+          {news.title}
+        </a>
+        <small>{`(${source})`}</small>
+      </div>
+      <div
+        style={{
+          marginBottom: "5px",
+          backgroundColor: "#ece2db",
+          paddingLeft: "10px",
+          paddingBottom: "5px",
+        }}>
+        <small>
+          <span style={{ margin: "2px" }}>{news.points}</span>
+        </small>
+        <small>
+          <a>upvote</a>
+        </small>
+        <small>
+          <span style={{ margin: "2px" }}>{news.num_comments}</span>
+        </small>
+        <small>
+          <a>comments</a>
+        </small>
+        <small style={{ margin: "5px" }}>
+          <a>hide</a>
+        </small>
+      </div>
+    </div>
+  );
+};
+
+export default NewsItem;
