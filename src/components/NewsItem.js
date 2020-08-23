@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-const NewsItem = ({ news }) => {
+const NewsItem = ({ news, hideNews }) => {
   const [newsItem, setNewsItem] = useState(news);
   const { points } = newsItem;
   const source = news.url
     ? news.url.replace("http://", "").replace("https://", "").split(/[/?#]/)[0]
     : "hackernews.com";
+
   return (
     <div
       style={{
@@ -43,7 +44,7 @@ const NewsItem = ({ news }) => {
           <a>comments</a>
         </small>
         <small style={{ margin: "5px" }}>
-          <a>hide</a>
+          <a onClick={() => hideNews(newsItem.objectID)}>hide</a>
         </small>
       </div>
     </div>

@@ -22,16 +22,19 @@ const News = () => {
   }, []);
 
   if (loading) {
-    return (
-      // <center>
-      //   <h1>Loading...</h1>
-      // </center>
-      <Spinner />
-    );
+    return <Spinner />;
   }
 
+  const hideNews = (id) => {
+    const updatedState = news.filter((n) => n.objectID !== id);
+    setNews(updatedState);
+  };
+
   return (
-    !loading && news.map((item) => <NewsItem key={item.objectID} news={item} />)
+    !loading &&
+    news.map((item) => (
+      <NewsItem key={item.objectID} news={item} hideNews={hideNews} />
+    ))
   );
 };
 
