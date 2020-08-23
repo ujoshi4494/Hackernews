@@ -13,9 +13,9 @@ function App() {
         <div className='App'>
           <Navbar />
           <Switch>
+            <Route exact path='/' component={News} />
             <Route exact path='/about' component={About} />
             <Route exact path='/contact' component={Contact} />
-            <Route exact path='/' component={News} />
           </Switch>
         </div>
       </Fragment>
